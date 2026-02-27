@@ -1,0 +1,384 @@
+Add:
+  - id: "KT-CM-ADD-001"
+    title: "添加合同成功（2位合规客户姓名，其他输入正确）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "张三"
+      phone: "13212340001"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        msg: "操作成功"
+        code: 200
+
+  - id: "KT-CM-ADD-002"
+    title: "添加合同成功（3位合规客户姓名，其他输入正确）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "李四明"
+      phone: "13212340002"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        msg: "操作成功"
+        code: 200
+
+  - id: "KT-CM-ADD-003"
+    title: "添加合同成功（4位合规客户姓名，其他输入正确）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "王小明华"
+      phone: "13212340003"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        msg: "操作成功"
+        code: 200
+
+  - id: "KT-CM-ADD-004"
+    title: "添加合同成功（1位任意字符的合同编号）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "赵六"
+      phone: "13212340004"
+      contractNo: "H"
+      subject: "6"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        msg: "操作成功"
+        code: 200
+
+  - id: "KT-CM-ADD-005"
+    title: "添加合同成功（10位任意字符的合同编号）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "孙七"
+      phone: "13212340005"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        msg: "操作成功"
+        code: 200
+
+  - id: "KT-CM-ADD-006"
+    title: "添加合同成功（20位任意字符的合同编号）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "周八"
+      phone: "13212340006"
+      contractNo: "HT1"
+      subject: "6"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        msg: "操作成功"
+        code: 200
+
+  - id: "KT-CM-ADD-007"
+    title: "添加合同失败（1位中文字符的客户姓名）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "张"
+      phone: "13212340007"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        code: 500
+
+  - id: "KT-CM-ADD-008"
+    title: "添加合同失败（5位中文字符的客户姓名）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "欧阳晓明华"
+      phone: "13212340008"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        code: 500
+
+  - id: "KT-CM-ADD-009"
+    title: "添加合同失败（客户姓名为空）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      phone: "13212340009"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        code: 500
+
+  - id: "KT-CM-ADD-010"
+    title: "添加合同失败（3位任意非中文字符的客户姓名）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "abc"
+      phone: "13212340010"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        code: 500
+
+  - id: "KT-CM-ADD-011"
+    title: "添加合同失败（3位含中文的任意字符的客户姓名）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "a张c"
+      phone: "13212340011"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        code: 500
+
+  - id: "KT-CM-ADD-012"
+    title: "添加合同失败（手机号为空）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "张三"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        code: 500
+
+  - id: "KT-CM-ADD-013"
+    title: "添加合同失败（手机号非11位数字）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "张三"
+      phone: "12345678"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        code: 500
+
+  - id: "KT-CM-ADD-014"
+    title: "添加合同失败（合同编号为空）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "张三"
+      phone: "13212340014"
+      subject: "6"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        code: 500
+
+  - id: "KT-CM-ADD-015"
+    title: "添加合同失败（21位任意字符的合同编号）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "张三"
+      phone: "13212340015"
+      contractNo: "HT2"
+      subject: "6"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        code: 500
+
+  - id: "KT-CM-ADD-016"
+    title: "添加合同失败（合同编号重复）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "张三"
+      phone: "13212340016"
+      contractNo: "55555"
+      subject: "6"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        msg: "合同号已存在"
+        code: 500
+
+  - id: "KT-CM-ADD-017"
+    title: "添加合同失败（未选择购买学科）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "张三"
+      phone: "13212340017"
+      contractNo: "HT"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        code: 500
+
+  - id: "KT-CM-ADD-018"
+    title: "添加合同失败（未选择购买课程）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "张三"
+      phone: "13212340018"
+      contractNo: "HT"
+      subject: "6"
+      courseId: ""
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        code: 500
+
+  - id: "KT-CM-ADD-019"
+    title: "添加合同失败（未上传合同）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "张三"
+      phone: "13212340019"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "361"
+      fileName: ""
+    expected:
+      status_code: 200
+      body:
+        code: 500
+
+  - id: "KT-CM-ADD-020"
+    title: "添加合同失败（选择不存在的购买学科）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "张三"
+      phone: "13212340019"
+      contractNo: "HT"
+      subject: "不存在的学科"
+      courseId: "361"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        code: 500
+
+  - id: "KT-CM-ADD-021"
+    title: "添加合同失败（选择不存在的购买课程）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "张三"
+      phone: "13212340019"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "不存在的课程"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        code: 500
+
+  - id: "KT-CM-ADD-022"
+    title: "添加合同失败（选择不存在的渠道来源，其他输入正确）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "测试"
+      phone: "13212341234"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "361"
+      channel: "不存在的渠道来源"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        code: 500
+
+  - id: "KT-CM-ADD-023"
+    title: "添加合同失败（选择不存在的活动信息，其他输入正确）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "测试"
+      phone: "13212341234"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "361"
+      activityId: "不存在的活动"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        code: 500
+
+  - id: "KT-CM-ADD-024"
+    title: "添加合同成功（选择渠道来源，其他输入正确）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "测试"
+      phone: "13212341234"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "361"
+      channel: "0"
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        msg: "操作成功"
+        code: 200
+
+  - id: "KT-CM-ADD-025"
+    title: "添加合同成功（选择活动信息，其他输入正确）"
+    url: "https://kdtx-test.itheima.net/api/contract"
+    data:
+      name: "测试"
+      phone: "13212341234"
+      contractNo: "HT"
+      subject: "6"
+      courseId: "361"
+      activityId: '77'
+      fileName: "/profile/upload/2023/01/05/86e5a3b8-b08c-470c-a17d-71375c3a8b9f.pdf"
+    expected:
+      status_code: 200
+      body:
+        msg: "操作成功"
+        code: 200

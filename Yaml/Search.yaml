@@ -1,0 +1,133 @@
+Search:
+  - id: "KT-CM-QRY-001"
+    title: "显示满足条件的合同信息（输入存在的合同编号）"
+    url: "https://kdtx-test.itheima.net/api/contract/list"
+    data:
+      contractNo: "HT-2026-0221"
+    expected:
+      status_code: 200
+      body:
+        total: true
+        msg: "查询成功"
+  - id: "KT-CM-QRY-002"
+    title: "显示满足条件的合同信息（输入存在的客户姓名）"
+    url: "https://kdtx-test.itheima.net/api/contract/list"
+    data:
+      name: "张三"
+    expected:
+      status_code: 200
+      body:
+        total: true
+        msg: "查询成功"
+  - id: "KT-CM-QRY-003"
+    title: "显示满足条件的合同信息（输入存在的手机号）"
+    url: "https://kdtx-test.itheima.net/api/contract/list"
+    data:
+      phone: "13212341234"
+    expected:
+      status_code: 200
+      body:
+        total: true
+        msg: "查询成功"
+  - id: "KT-CM-QRY-004"
+    title: "显示满足条件的合同信息（选择存在的购买学科）"
+    url: "https://kdtx-test.itheima.net/api/contract/list"
+    data:
+      subject: "6"
+    expected:
+      status_code: 200
+      body:
+        total: true
+        msg: "查询成功"
+  - id: "KT-CM-QRY-005"
+    title: "显示满足条件的合同信息（选择存在的购买课程）"
+    url: "https://kdtx-test.itheima.net/api/contract/list"
+    data:
+      courseId: 361
+    expected:
+      status_code: 200
+      body:
+        total: true
+        msg: "查询成功"
+  - id: "KT-CM-QRY-006"
+    title: "显示满足条件的合同信息（选择创建时间为近 3 个月内）"
+    url: "https://kdtx-test.itheima.net/api/contract/list"
+    data:
+      params[beginCreateTime]: "2026-01-01"
+      params[endCreateTime]: "2026-03-01"
+    expected:
+      status_code: 200
+      body:
+        total: true
+        msg: "查询成功"
+  - id: "KT-CM-QRY-007"
+    title: "显示满足条件的合同信息（输入存在的合同编号、客户姓名、手机号、购买学科、购买课程，选择创建时间为近 3 个月内）"
+    url: "https://kdtx-test.itheima.net/api/contract/list"
+    data:
+      contractNo: "HT-2026-0221"
+      name: "张三"
+      phone: '13212341234'
+      subject: '6'
+      courseId: 361
+      params[beginCreateTime]: "2026-01-01"
+      params[endCreateTime]: "2026-03-01"
+    expected:
+      status_code: 200
+      body:
+        total: true
+        msg: "查询成功"
+  - id: "KT-CM-QRY-008"
+    title: "显示空值（输入不存在的合同编号）"
+    url: "https://kdtx-test.itheima.net/api/contract/list"
+    data:
+      contractNo: "HT-9999-9999"
+    expected:
+      status_code: 200
+      body:
+        total: false
+        msg: "查询成功"
+  - id: "KT-CM-QRY-009"
+    title: "显示空值（输入不存在的客户姓名）"
+    url: "https://kdtx-test.itheima.net/api/contract/list"
+    data:
+      name: "不存在客户"
+    expected:
+      status_code: 200
+      body:
+        total: false
+        msg: "查询成功"
+  - id: "KT-CM-QRY-010"
+    title: "显示空值（输入不存在的手机号）"
+    url: "https://kdtx-test.itheima.net/api/contract/list"
+    data:
+      phone: "19999999999"
+    expected:
+      status_code: 200
+      body:
+        total: false
+        msg: "查询成功"
+  - id: "KT-CM-QRY-011"
+    title: "显示空值（选择创建时间为下月起至未来一年内）"
+    url: "https://kdtx-test.itheima.net/api/contract/list"
+    data:
+      params[beginCreateTime]: "2030-03-01"
+      params[endCreateTime]: "2035-03-31"
+    expected:
+      status_code: 200
+      body:
+        total: false
+        msg: "查询成功"
+  - id: "KT-CM-QRY-012"
+    title: "显示空值（输入不存在的合同编号、客户姓名、手机号，选择创建时间为下月起至未来一年内）"
+    url: "https://kdtx-test.itheima.net/api/contract/list"
+    data:
+      contractNo: "HT-9999-9999"
+      name: "不存在客户"
+      phone: "19999999999"
+      params[beginCreateTime]: "2030-03-01"
+      params[endCreateTime]: "2035-03-31"
+    expected:
+      status_code: 200
+      body:
+        total: false
+        msg: "查询成功"

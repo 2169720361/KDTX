@@ -1,0 +1,126 @@
+login:
+  - id: "TC-LOGIN-001"
+    title: "登录成功（正确账号+正确密码+正确验证码）"
+    url: "https://kdtx-test.itheima.net/api/login"
+    data:
+      username: "admin"
+      password: "HM_2023_test"
+      code: "2"
+      uuid: "uid"
+    expected:
+      status_code: 200
+      body:
+        msg: "操作成功"
+        code: 200
+
+  - id: "TC-LOGIN-002"
+    title: "登录失败（账号为空）"
+    url: "https://kdtx-test.itheima.net/api/login"
+    data:
+      username: ""
+      password: "HM_2023_test"
+      code: "2"
+      uuid: "uid"
+    expected:
+      status_code: 200
+      body:
+        msg: "用户不存在/密码错误"
+        code: 500
+
+  - id: "TC-LOGIN-003"
+    title: "登录失败（密码为空）"
+    url: "https://kdtx-test.itheima.net/api/login"
+    data:
+      username: "admin"
+      password: ""
+      code: "2"
+      uuid: "uid"
+    expected:
+      status_code: 200
+      body:
+        msg: "用户不存在/密码错误"
+        code: 500
+
+  - id: "TC-LOGIN-004"
+    title: "登录失败（密码错误）"
+    url: "https://kdtx-test.itheima.net/api/login"
+    data:
+      username: "admin"
+      password: "wrong_password"
+      code: "2"
+      uuid: "uid"
+    expected:
+      status_code: 200
+      body:
+        msg: "用户不存在/密码错误"
+        code: 500
+
+  - id: "TC-LOGIN-005"
+    title: "登录失败（验证码为空）"
+    url: "https://kdtx-test.itheima.net/api/login"
+    data:
+      username: "admin"
+      password: "HM_2023_test"
+      code: ""
+      uuid: "uid"
+    expected:
+      status_code: 200
+      body:
+        msg: "验证码错误"
+        code: 500
+
+  - id: "TC-LOGIN-006"
+    title: "登录失败（验证码错误）"
+    url: "https://kdtx-test.itheima.net/api/login"
+    data:
+      username: "admin"
+      password: "HM_2023_test"
+      code: "999"
+      uuid: "uid"
+    expected:
+      status_code: 200
+      body:
+        msg: "验证码错误"
+        code: 500
+
+  - id: "TC-LOGIN-007"
+    title: "登录失败（uuid无效）"
+    url: "https://kdtx-test.itheima.net/api/login"
+    data:
+      username: "admin"
+      password: "HM_2023_test"
+      code: "2"
+      uuid: "invalid_uuid_456"
+    expected:
+      status_code: 200
+      body:
+        msg: "验证码已失效"
+        code: 500
+
+  - id: "TC-LOGIN-008"
+    title: "登录失败（uuid为空）"
+    url: "https://kdtx-test.itheima.net/api/login"
+    data:
+      username: "admin"
+      password: "HM_2023_test"
+      code: "2"
+      uuid: ""
+    expected:
+      status_code: 200
+      body:
+        msg: "验证码已失效"
+        code: 500
+
+  - id: "TC-LOGIN-009"
+    title: "登录失败（账号错误）"
+    url: "https://kdtx-test.itheima.net/api/login"
+    data:
+      username: "wrong_admin"
+      password: "HM_2023_test"
+      code: "2"
+      uuid: "uid"
+    expected:
+      status_code: 200
+      body:
+        msg: "用户不存在/密码错误"
+        code: 500
