@@ -1,4 +1,6 @@
 pytest
+pytest-rerunfailures
 requests
-Pyyaml
+PyYAML
+allure-pytest
 playwright
