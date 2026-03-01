@@ -34,7 +34,7 @@ jobs:
 
     - name: 5、安装 Allure
       run: |
-        wget https://github.com/allure-framework/allure2/releases/download/2.30.0/allure-2.30.0.tgz
+        wget https://github.com/allure-framework/allure2/releases/download/2.34.0/allure-2.34.0.tgz
         tar -zxvf allure-2.30.0.tgz
         sudo mv allure-2.30.0 /opt/allure
         sudo ln -s /opt/allure/bin/allure /usr/bin/allure
