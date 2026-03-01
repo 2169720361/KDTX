@@ -39,10 +39,10 @@ jobs:
         sudo mv allure-2.30.0 /opt/allure
         sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
-    - name: 安装 Playwright 浏览器
+    - name: 6、安装 Playwright 浏览器
       run: playwright install chromium
 
-    - name: 6、运行测试
+    - name: 7、运行测试
       run: |
           pytest test_*/
       env:
@@ -50,7 +50,7 @@ jobs:
       continue-on-error: false
 
 
-    - name: 7、上传 Allure 报告
+    - name: 8、上传 Allure 报告
       uses: actions/upload-artifact@v4
       if: always()
       with:
