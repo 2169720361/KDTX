@@ -1,11 +1,10 @@
-name: API Test CI
+name: API & UI Test CI
+
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
-
 
 jobs:
   test:
@@ -15,25 +14,28 @@ jobs:
     - name: 检出代码
       uses: actions/checkout@v4
 
-    - name: 配置 Python
+    - name: 配置 Python 环境
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
+        cache: 'pip'
+        cache-dependency-path: 'requirements.txt'
 
-    - name: 安装依赖
+    - name: 安装项目依赖
       run: |
-        python -m pip install --upgrade pip 
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install pytest allure-pytest   
 
+    - name: 安装 Playwright 浏览器
+      run: playwright install chromium
 
-    - name: 运行测试并生成 Allure 结果
+    - name: 运行测试并生成 Allure 原始数据
       run: |
-        pytest test_Api/ --alluredir=allure-results
+        pytest test_*/ --alluredir=allure-results
       continue-on-error: false
 
 
-    - name: 上传 Allure 结果
+    - name: 上传 Allure 原始数据
       uses: actions/upload-artifact@v4
       if: always()
       with:
