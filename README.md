@@ -49,7 +49,7 @@ KDTX/
 
 ### 1. 克隆项目
 ```bash
-git clone https://github.com/你的用户名/KDTX.git
+git clone https://github.com/2169720361/KDTX.git
 cd KDTX
 ```
 
@@ -74,25 +74,23 @@ pytest test_*/
 
 ### 4. 生成Allure报告
 ```bash
-# 运行测试时已自动生成原始结果（在 allure-results 目录）
-# 生成HTML报告
-allure generate allure-results -o allure --clean
-# 打开报告
-allure open allure
+# 运行测试时已自动生成测试报告（在 allure 目录）
+# 打开 allure 目录
+python3 -m http.server 8080
+# 打开浏览器，访问 http://localhost:8080/，即可看到完整的 Allure 报告
 ```
 
 ---
 
 ## 持续集成
-本项目已集成 **GitHub Actions**，每次推送至 `main` 分支或创建 PR 时自动运行全部测试，并生成 Allure 报告作为构建产物下载。  
-![CI Status](https://github.com/你的用户名/KDTX/actions/workflows/ci.yml/badge.svg)
+本项目已集成 **GitHub Actions**，每次推送至 `main` 分支或创建 PR 时自动运行全部测试，并生成 Allure 报告作为构建产物下载。 
 
 ---
 
 ## 测试成果
 - **接口自动化用例**：52条（覆盖登录、合同增/查、业务流程）
 - **UI自动化用例**：5条（核心正向流程 + 典型异常）
-- **发现缺陷**：通过接口测试发现后端校验缺失缺陷10+个（如姓名长度、手机号格式等），推动开发修复。
+- **发现缺陷**：通过接口测试发现后端校验缺失缺陷10个
 - **持续集成**：单次CI运行时间约3分钟，自动生成可视化报告。
 
 ---
