@@ -58,3 +58,4 @@ jobs:
         path: | 
           allure
           allure-results
+          Logs
