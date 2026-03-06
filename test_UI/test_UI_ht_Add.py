@@ -12,7 +12,7 @@ from utils.Yaml_Util import yaml1
 @pytest.fixture(autouse=True,scope="class")
 def login():
     with sync_playwright() as p:
-        a = p.chromium.launch(headless=False)
+        a = p.chromium.launch()
         b = a.new_context()
         page = b.new_page()
         page.goto("https://kdtx-test.itheima.net/#/login")
