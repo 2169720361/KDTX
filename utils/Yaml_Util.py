@@ -31,8 +31,18 @@ class yaml1:
             data_list.append((id,title,url,data,expected))
         return data_list
 
+    def data2(self):
+        yaml_data = yaml0(self.yaml_path)
+        data_list = []
+        for i in yaml_data[self.name]:
+            title = i['title']
+            data = i['data']
+            expected = i['expected']
+            data_list.append((title,data,expected))
+        return data_list
+
 if __name__ == '__main__':
-    a = yaml1('Search').data1()
-    a1 = a[0][4]['body']['total']
+    a = yaml1('Search').data2()
+    a1 = a
     print(a)
     print(a1,type(a1))
