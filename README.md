@@ -94,6 +94,10 @@ python3 -m http.server 8080
 - **持续集成**：单次CI运行时间约5分钟，自动生成可视化报告。
 
 ---
+## 日志与allure测试报告预览
+- ![输入图片说明](Logs/image.png)
+- ![输入图片说明](Logs/allure1.png)
+- ![输入图片说明](Logs/allure2.png)
 
 ## 许可证
 本项目仅供学习交流使用。
